@@ -206,7 +206,26 @@ example polybar
 
 ```
 
+# Step 19 - Backing Up Your Dotfiles
+I'm not trying to lose all my stuff again.
 
+```
+# Initialize a git bare repo
+git init --bare $HOME/.dotfiles
+
+# Create an alias
+alias dotfiles ="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+# Save alias
+funcsave dotfiles
+
+# Ignore files you don't want tracked
+dotfiles config --local status.showUntrackedFiles no
+
+# Create a github repo called .dotfiles
+
+# dotfiles remote add origin https://github.com/gucci-ninja/.dotfiles
+```
 
 
 
