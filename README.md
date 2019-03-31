@@ -159,6 +159,8 @@ sxhkd &
 exec bspwm
 
 # Make termite your default terminal by going into the sxhkdrc file and changing xterm to termite
+
+# Add custom keybinds to sxhkdrc
 ```
 
 # Step 15 - Sound
@@ -201,8 +203,19 @@ yay -S polybar
 install -Dm644 /usr/share/doc/polybar/config $HOME/.config/polybar/config
 example polybar
 
+# Make a lot of changes to example config
+
 # I was getting unicode errors so
-?? FA ??
+sudo pacman -S ttf-font-awesome
+
+# In polybar config change fonts
+font-1 = "Font Awesome 5 Free:style=Regular:size=10;5"
+font-2 = "Font Awesome 5 Free:style=Solid:size=10;5"
+
+# Go through all unicode characters in polybar config and replace them with icons from the FA cheatsheet
+
+# Put this line in bspwmrc
+polybar main &
 
 ```
 
@@ -227,7 +240,35 @@ dotfiles config --local status.showUntrackedFiles no
 # dotfiles remote add origin https://github.com/gucci-ninja/.dotfiles
 ```
 
+# Step 20 - Make your windows look less ugly
+Since I have bspwm I don't have a display manager to add GTK themes to. So I have to get lxappearance >:( I feel lied to
 
+```
+yay -S lxappearance
+sudo pacman -S gtk-engine-murrine adwaita-icon-theme
+
+```
+
+Step 20 was made possible largely due to this reddit post, https://www.reddit.com/r/unixporn/comments/74z2z6/easily_getting_started_with_bspwm_and_polybar/
+and I wish I had found it earlier.
+
+# Step 21 - Neofetch
+You don't need to do this, it's mostly fo showing off to people. 
+
+```
+pacman -S neofetch
+
+# Add the following to fish.config
+neofetch
+
+```
+
+Now eveyr time you create a new terminal session you can show off.
+
+# Step ?? - File Manager
+Probably thunar
+
+# Step ?? - Aliases
 
 
 
