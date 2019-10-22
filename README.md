@@ -265,14 +265,55 @@ neofetch
 
 Now eveyr time you create a new terminal session you can show off.
 
-# Step ?? - File Manager
-Probably thunar
+# Step 22 - File Manager
+- I'm using thunar
 
 # Step ?? - Aliases
 
+# Step 23 - Connecting to Eduroam
+- this is too hard and I failed
+- luckily it was easy to connect to Mac-WiFi (note the capitals)
+- I'll post my wifi config if someone asks
 
+# Step 24 - Bluetooth
+```bash
+$ pacman -S bluez bluez-utils
+$ pacman -S pulseaudio-bluetooth pulseaudio-alsa pavucontrol
 
+systemctl enable bluetooth.service
 
+$ sudo vim etc/bluetooth/main.conf
+# add the following line at the end
+# this will ensure your bluetooth headphones auto-connect
+AutoEnable=true
 
+# make a directory for pulse (you may already have it)
+$ mkdir ~/.config/pulse
+# copy sample
+$ cp /etc/pulse/* ~/.config/pulse/
 
+$ systemctl restart bluetooth
 
+$ bluetoothctl
+# you should be in the bluetooth user now
+[bluetooth]~ power on
+[bluetooth]~ agent on
+[bluetooth]~ default-agent
+[bluetooth]~ scan on
+# at this point you should put your headphones in pairing mode
+# they should show up with a mac address
+[bluetooth]~ pair 00:00:00:00:00
+[bluetooth]~ connect 00:00:00:00:00
+# if this part fails run the following in a new terminal
+$ pulseaudio --start
+# it should connect now
+[bluetooth]~ trust 00:00:00:00:00
+[bluetooth]~ scan off
+[bluetooth]~ exit
+
+# it should connect your headphoens at this point. if you don't hear sound, restart spotify or whatever and it should work
+# if it doesn't, open pavucontrol
+$ pavucontrol
+
+# this interface will show you your connected devices, make sure it is not on mute and that under configuration tab it says it's connect to ADP SINK or sm dumb
+```
