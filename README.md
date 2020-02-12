@@ -1,7 +1,7 @@
 # Introduction
 
 Along with my dotfiles, this will also document how I installed Arch Linux - in caseI have to do it again.
-This is my second installation because my first one, for whatever reason, died and I didn't even have my dotfiles backed up to git.
+This is my second installation because my first one, for whatever reason, died and I didn't even have my dotfiles backed up to git. Go [here](#help) if you need help.
 
 # Step 1 - Booting the ISO
 I already have an ISO image of Arch Linux on a USB so I just plugged that in, spammed F2/F3 repeatedly until I saw the boot menu.
@@ -317,3 +317,16 @@ $ pavucontrol
 
 # this interface will show you your connected devices, make sure it is not on mute and that under configuration tab it says it's connect to ADP SINK or sm dumb
 ```
+# Help
+
+  I updated my system and something broke.
+  
+  ```
+  $ uname -a
+    This is the linux version you're running
+  $ cd /var/cache/pacman/pkg
+  $ ls
+    These are the linux versions you have saved in your cache. Find one you want to downgrade to
+  $ sudo pacman -U linux-#.#.#.arch---
+  $ reboot
+  ```
