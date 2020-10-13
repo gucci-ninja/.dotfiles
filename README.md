@@ -1,3 +1,7 @@
+# Current Setup
+
+![](shell.png)
+
 # Introduction
 
 Along with my dotfiles, this will also document how I installed Arch Linux - in caseI have to do it again.
