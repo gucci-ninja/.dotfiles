@@ -8,7 +8,7 @@ import sys
 api_key = os.getenv('OPENAI_API_KEY')
 
 # Set up OpenAI client that will be used to make API requests
-client = OpenAI(api_key=api_key)
+client = OpenAI(api_key = os.getenv('OPENAI_API_KEY'))
 
 # Initial message to give to AI client to set context
 messages = [ {"role": "system", "content": 
